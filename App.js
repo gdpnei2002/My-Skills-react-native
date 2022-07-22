@@ -1,14 +1,8 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import {Home} from './src/pages/Home';
 
-const App = () => {
+export default function App(){
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>
-        Try editing me! Try editing me! Try editing me! 
-      </Text>
-    </View>
+      <Home />
   );
 }
-
-export default App;
