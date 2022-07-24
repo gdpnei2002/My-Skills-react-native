@@ -4,8 +4,10 @@ import { Button } from '../components/Button';
 import { SkillCard } from '../components/SkillCard';
 
 export function Home(){
-    const [newSkill, setNewSill] = useState()
+    const [newSkill, setNewSkill] = useState()
     const[mySkills, setMySkills] = useState([])
+
+    
 
     function handleAddNewSkill(){
         setMySkills(oldState => [...oldState, newSkill]);
@@ -14,11 +16,12 @@ export function Home(){
   return (
       <View style={styles.container}>
         <Text style={styles.title}>Welcome</Text>
+
         <TextInput 
             style={styles.input}
             placeholder="New skill"
             placeholderTextColor="#555"
-            onChangeText={setNewSill}
+            onChangeText={setNewSkill}
             />
 
             <Button onPress={handleAddNewSkill} />
