@@ -5,6 +5,10 @@ export function Home(){
     const [newSkill, setNewSill] = useState()
     const[mySkills, setMySkills] = useState([])
 
+    function handleAddNewSkill(){
+        setMySkills(oldState => [...oldState, newSkill]);
+    }
+
   return (
       <View style={styles.container}>
         <Text style={styles.title}>Welcome</Text>
@@ -17,19 +21,23 @@ export function Home(){
 
             <TouchableOpacity  
                 style={styles.button}
-                activeOpacity={.7}>
+                activeOpacity={.7}
+                onPress={handleAddNewSkill}>
                 <Text  style={styles.buttonText}>Add</Text>
             </TouchableOpacity>
 
-            <Text style={[styles.title, {marginTop: 20}]}>
+            <Text style={[styles.title, {marginVertical: 50}]}>
                 My skills
             </Text>
-
-            <TouchableOpacity style={styles.buttonSkill}>
-                <Text style={styles.textSkill}>
-                    Teste
-                </Text>
-            </TouchableOpacity>
+            {
+                    mySkills.map(skill=>(
+                <TouchableOpacity key={skill} style={styles.buttonSkill}>
+                    <Text style={styles.textSkill}>
+                        {skill}
+                    </Text>
+                </TouchableOpacity>
+                ))
+            }
       </View>
   );
 }
@@ -70,14 +78,13 @@ const styles = StyleSheet.create({
     buttonSkill:{
         backgroundColor: "#1F1E25",
         padding: 15,
-        borderRadius: 50
+        borderRadius: 50,
+        alignItems: "center",
+        marginVertical: 10
     },
     textSkill:{
         color: "#FFF",
-        backgroundColor: "#1F1E25",
         fontSize: 22,
         fontWeight: "bold",
     }
-
-
 })
