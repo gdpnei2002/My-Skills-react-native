@@ -3,13 +3,23 @@ import { Text, View, StyleSheet, TextInput, TouchableOpacity, FlatList, StatusBa
 import { Button } from '../components/Button';
 import { SkillCard } from '../components/SkillCard';
 
+interface SkillData{
+    id: string;
+    name: string
+}
+
 export function Home(){
-    const [newSkill, setNewSkill] = useState()
-    const[mySkills, setMySkills] = useState([])
-    const [gretting, setGretting] = useState ()
+    const [newSkill, setNewSkill] = useState('')
+    const [mySkills, setMySkills] = useState<SkillData[]>([])
+    const [gretting, setGretting] = useState ('')
 
     function handleAddNewSkill(){
-        setMySkills(oldState => [...oldState, newSkill]);
+        const data = {
+            id: String(new Date().getTime()),
+            name: newSkill
+        }
+
+        setMySkills(oldState => [...oldState, data]);
     }
 
     useEffect(() => {
@@ -47,9 +57,9 @@ export function Home(){
 
             <FlatList
                 data={mySkills}
-                keyExtractor={item => item}
+                keyExtractor={item => item.id}
                 renderItem={({item}) =>(
-                    <SkillCard skill={item} />
+                    <SkillCard skill={item.name} />
                 )} />
                       
                 
@@ -62,7 +72,6 @@ const styles = StyleSheet.create({
     container:{
         flex:1,
         backgroundColor: "#121015",
-        paddingHorizontal: 20,
         paddingVertical: 70,
         paddingHorizontal: 30,
     },
@@ -75,7 +84,6 @@ const styles = StyleSheet.create({
         backgroundColor: "#1F1E25",
         color: "#FFF",
         fontSize: 18,
-        padding: Platform.OS == 'ios' ? 15:10,
         marginTop: 30,
         borderRadius: 7,
     },
