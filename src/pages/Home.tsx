@@ -32,13 +32,13 @@ export function Home(){
     useEffect(() => {
         const currentHour = new Date().getHours();
             if(currentHour < 12){
-                setGretting('good morning');
+                setGretting('Good morning');
             }
             else if(currentHour >=12 && currentHour <18){
-                setGretting('good afternon')
+                setGretting('Good afternon')
             }
             else{
-                setGretting('good night')
+                setGretting('Good night')
             }
     }, [mySkills])
 
