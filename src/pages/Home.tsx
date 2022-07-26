@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import { Text, View, StyleSheet, TextInput, TouchableOpacity, FlatList, StatusBar } from 'react-native';
-import { Button } from '../components/Button';
-import { SkillCard } from '../components/SkillCard';
+import { Button } from '../components/Button/Button';
+import { SkillCard } from '../components/SkillCard/SkillCard';
+import styles from "./style"
 
 interface SkillData{
     id: string;
@@ -76,26 +77,3 @@ export function Home(){
   );
 }
 
-const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        backgroundColor: "#121015",
-        paddingVertical: 70,
-        paddingHorizontal: 30,
-    },
-    title:{
-        color: "#FFF",
-        fontSize: 24,
-        fontWeight: "bold"
-    },
-    input:{
-        backgroundColor: "#1F1E25",
-        color: "#FFF",
-        fontSize: 18,
-        marginTop: 30,
-        borderRadius: 7,
-    },
-    greetings:{
-        color:"#FFF"
-    }
-})
