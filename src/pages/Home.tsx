@@ -44,7 +44,7 @@ export function Home(){
   return (
       <View style={styles.container}>
         <Text style={styles.title}>Welcome</Text>
-        <Text style={styles.greetings}>
+            <Text style={styles.greetings}>
                 {gretting}
             </Text>
 
@@ -72,9 +72,6 @@ export function Home(){
                         skill={item.name}
                         onPress={() => handleRemoveSkill(item.id)} />
                 )} />
-                      
-                
-              
       </View>
   );
 }
